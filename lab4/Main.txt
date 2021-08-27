@@ -1,0 +1,25 @@
+.include "defs.h"
+.section .data
+b: .byte '0'
+.section .text
+.global _start
+_start:
+	loop:
+	movq $SYS_READ, % rax
+	movq $STDIN, % rdi
+	leaq b, % rsi
+	movq $1 , % rdx
+	syscall
+	cmpq $0 , % rax
+	je end
+	addb $13 , b
+	movq $SYS_WRITE, % rax
+	movq $STDOUT, % rdi
+	movq $b, % rsi
+	movq $1 , % rdx
+	syscall
+	jmp loop
+end: 
+	movq $60 , % rax
+	movq $0 , % rdi
+syscall 

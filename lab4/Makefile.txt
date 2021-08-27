@@ -1,0 +1,10 @@
+﻿VALUE=lab4
+ASFLAGS=--gdwarf-2
+LDFLAGS=-static
+
+all: exit
+exit: $(VALUE).s
+	as $(ASFLAGS) -o $(VALUE).o -c $(VALUE).s
+	ld $(LDFLAGS) -o $(VALUE) $(VALUE).o
+clean:
+	rm -f *.o $(VALUE)

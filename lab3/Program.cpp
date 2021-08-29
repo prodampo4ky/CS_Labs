@@ -2,7 +2,6 @@
 #include <iostream>
 #include <time.h>
 #include <algorithm>
-#include <Bits.h>
 
 using namespace std;
 
@@ -34,15 +33,20 @@ void oddEvenSort(int arr[], int n)
 
 int main()
 {
-    const int f = 99999;
-    int arr[f];
-    srand(time(NULL));
-    // Filling matrix
-    for (int i = 0; i < f; i++)
+    const int num = 100;
+    
+for (int i = 0; i < num; i++)
     {
-        arr[i] = 1 + rand() % 10000;
+        const int f = 99999;
+        int arr[f];
+        srand(time(NULL));
+        // Filling matrix
+        for (int i = 0; i < f; i++)
+        {
+            arr[i] = 1 + rand() % 10000;
+        }
+        int n = sizeof(arr) / sizeof(arr[0]);
+        oddEvenSort(arr, n);
+        return (0);
     }
-    int n = sizeof(arr) / sizeof(arr[0]);
-    oddEvenSort(arr, n);
-    return (0);
 }

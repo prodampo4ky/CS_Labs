@@ -4,6 +4,7 @@ namespace lab2_1
 {
     class Program
     {
+
         static void Main(string[] args)
         {
             bool minus = false;
